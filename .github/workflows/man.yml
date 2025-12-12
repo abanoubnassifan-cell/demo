@@ -1,14 +1,23 @@
-name: GitHub Actions Demo
-on: push # Trigger on any push/commit
+name: Run automated tests
+
+on:
+  pull_request:
+    branches:
+      - main
+
 jobs:
-  Explore-GitHub-Actions:
+  TestJob:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Print the triggering event
-        run: echo "The job was triggered by ${{ github.event_name }}."
-      - name: Print the OS of the runner
-        run: echo "This job is running on a ${{ runner.os }} server" 
-      - name: Check out repository code action
+      # Step 1: Check out source code
+      - name: Checkout project sources
         uses: actions/checkout@v4
-      - name: List files in the repository
-        run: ls ${{ github.workspace }}
+
+      # Step 2: Set up Gradle
+      - name: Setup Gradle
+        uses: gradle/gradle-build-action@v2
+
+      # Step 3: Run tests with Gradle
+      - name: Run Test with Gradle Wrapper
+        run: ./gradlew test
