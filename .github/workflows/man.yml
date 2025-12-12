@@ -1,8 +1,5 @@
 name: Run automated tests
-on:
-  pull_request:
-    branches:
-      - main
+on: push
 jobs:
   TestJob:
     runs-on: ubuntu-latest
