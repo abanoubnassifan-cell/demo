@@ -13,20 +13,16 @@ public class Student {
     // Calculate Grade Function
     public String calculateGrade() {
 
-       public String calculateGrade() {
-
-    if (finalGrade >= 90) {
-        return "A";
-    } else if (finalGrade >= 80) {
-        return "B";    // ✔ FIXED
-    } else if (finalGrade >= 70) {
-        return "C";    // ✔ FIXED
-    } else if (finalGrade >= 60) {
-        return "D";
-    } else {
-        return "F";
-    }
-}
-
+        if (finalGrade >= 90) {
+            return "A";
+        } else if (finalGrade >= 80) {
+            return "B";    // ✔ FIXED
+        } else if (finalGrade >= 70) {
+            return "C";    // ✔ FIXED
+        } else if (finalGrade >= 60) {
+            return "D";
+        } else {
+            return "F";
+        }
     }
 }
