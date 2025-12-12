@@ -1,15 +1,14 @@
-name: Run automated tests
-on: push
+name: GitHub Actions Demo
+on: push # Trigger on any push/commit
 jobs:
-  TestJob:
+  Explore-GitHub-Actions:
     runs-on: ubuntu-latest
     steps:
-      # Step 1: Download the project's source code
-      - name: Checkout project sources
-        uses: actions/checkout@v4 
-      # Step 2: Set up the Gradle build tool
-      - name: Setup Gradle 
-        uses: gradle/gradle-build-action@v2
-      # Step 3: Run tests using the Gradle Wrapper
-      - name: Run Test with Gradle Wrapper
-        run: ./gradlew test
+      - name: Print the triggering event
+        run: echo "The job was triggered by ${{ github.event_name }}."
+      - name: Print the OS of the runner
+        run: echo "This job is running on a ${{ runner.os }} server" 
+      - name: Check out repository code action
+        uses: actions/checkout@v4
+      - name: List files in the repository
+        run: ls ${{ github.workspace }}
